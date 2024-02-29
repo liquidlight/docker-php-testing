@@ -18,6 +18,12 @@ LABEL org.opencontainers.image.source=https://github.com/liquidlight/docker-php-
 LABEL org.opencontainers.image.description="Docker image for running PHP Tests"
 LABEL org.opencontainers.image.licenses=ISC
 
+# Install dependencies
+RUN apk add \
+	--update \
+	--no-cache \
+	git
+
 # Install XDEBUG
 RUN apk add --no-cache linux-headers \
 	&& apk add --update --no-cache --virtual .build-dependencies $PHPIZE_DEPS\
