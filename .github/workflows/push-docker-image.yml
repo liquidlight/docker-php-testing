@@ -38,14 +38,3 @@ jobs:
             "PHP_VERSION=${{ matrix.php-versions }}"
           push: true
           tags: ${{ env.REGISTRY }}/${{ env.REPO_NAME }}:${{ matrix.php-versions }}
-
-      - name: Make a Slim image
-        uses: kitabisa/docker-slim-action@v1
-        env:
-          DSLIM_HTTP_PROBE: false
-        with:
-          target: ${{ env.REGISTRY }}/${{ env.REPO_NAME }}:${{ matrix.php-versions }}
-          tag: "${{ matrix.php-versions }}-slim"
-
-      # Push to the registry
-      - run: docker push ${{ env.REGISTRY }}/${{ env.REPO_NAME }}:${{ matrix.php-versions }}-slim
