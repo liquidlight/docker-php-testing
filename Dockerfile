@@ -12,7 +12,11 @@ FROM composer:2 as COMPOSER
 # baseline
 # Create base image for baseline image build
 ###
-FROM php:$PHP_VERSION-cli-alpine3.16 AS image_baseline
+FROM php:$PHP_VERSION-cli-alpine AS image_baseline
+
+LABEL org.opencontainers.image.source=https://github.com/liquidlight/docker-php-testing
+LABEL org.opencontainers.image.description="Docker image for running PHP Tests"
+LABEL org.opencontainers.image.licenses=ISC
 
 # Install XDEBUG
 RUN apk add --no-cache linux-headers \
