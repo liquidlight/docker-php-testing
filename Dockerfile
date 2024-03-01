@@ -14,9 +14,9 @@ FROM composer:2 as COMPOSER
 ###
 FROM php:$PHP_VERSION-cli-alpine AS image_baseline
 
-LABEL org.opencontainers.image.source=https://github.com/liquidlight/docker-php-testing
-LABEL org.opencontainers.image.description="Docker image for running PHP Tests"
-LABEL org.opencontainers.image.licenses=ISC
+LABEL org.opencontainers.image.source https://github.com/liquidlight/docker-php-testing
+LABEL org.opencontainers.image.description "Docker image for running PHP Tests"
+LABEL org.opencontainers.image.licenses ISC
 
 # Install dependencies
 RUN apk add \
