@@ -38,3 +38,13 @@ jobs:
             "PHP_VERSION=${{ matrix.php-versions }}"
           push: true
           tags: ${{ env.REGISTRY }}/${{ env.REPO_NAME }}:${{ matrix.php-versions }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: 'Dockerfile-7.4'
+          build-args: |
+            "PHP_VERSION=7.4"
+          push: true
+          tags: ${{ env.REGISTRY }}/${{ env.REPO_NAME }}:7.4
